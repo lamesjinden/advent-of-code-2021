@@ -26,7 +26,7 @@
   "returns the result of joining ms horizontally"
   [& ms] (apply m/join-along 1 ms))
 
-(defn split-on-newline
+(defn group-by-newline
   "returns a lazy sequence of sequences of strings that is the result of
   splitting s on newline characters, partitioning on blank lines,
   then excluding blank elements"
@@ -78,3 +78,11 @@
          (map (fn [[k vs]]
                 {k (count vs)}))
          (apply merge))))
+
+(defn bin-str->int [s]
+  "returns an integer that is the result of Integer.parseInt with radix of 2"
+  (Integer/parseInt s 2))
+
+(defn bin-str->long [s]
+  "returns a long that is the result of Long.parseLong with radix of 2"
+  (Long/parseLong s 2))
